@@ -12,7 +12,8 @@ export class MessageService{
         return this.messages;
     }
 
-    deleteMessages(message: Message){
-        this.messages.slice(this.messages.indexOf(message), 1);
+    deleteMessage(message: Message){
+        this.messages.splice(this.messages.indexOf(message), 1);
+        //console.log(this.messages);
     }
 }
