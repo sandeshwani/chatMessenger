@@ -17,7 +17,11 @@ export class MessageInputComponent{
         //console.log(value);
         //document.write(value);
        const message = new Message(form.value.content, 'Max');
-       this.messageService.addMessage(message);
+       this.messageService.addMessage(message)
+           .subscribe(
+               data => console.log(data),
+               error => console.log(error)
+           );
        form.resetForm();
 
     }
