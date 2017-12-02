@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 const localServer = "http://localhost:3000/message";
 
 //https://chat-messenger-sandesh.herokuapp.com/
-const deployServer = "http://chat-messenger-sandesh.herokuapp.com/message";
+const deployServer = "https://chat-messenger-sandesh.herokuapp.com/message";
 
 
 @Injectable()
