@@ -4,7 +4,12 @@ import {Injectable} from "@angular/core";
 import 'rxjs/Rx';
 import {Observable} from "rxjs";
 
-var server = "http://localhost:3000/message";
+const localServer = "http://localhost:3000/message";
+
+//https://chat-messenger-sandesh.herokuapp.com/
+const deployServer = "http://chat-messenger-sandesh.herokuapp.com/message";
+
+
 @Injectable()
 export class MessageService{
     private messages: Message[] = [];
@@ -18,7 +23,7 @@ export class MessageService{
         const body = JSON.stringify(message);
         //console.log(body);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post(server, body, {headers: headers})
+        return this.http.post(deployServer, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
         //console.log(this.messages);
