@@ -9,12 +9,21 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/messages');
 
-const localServer = 'localhost:27017/node-angular';
-const deployServer = 'test-user:test_pw@ds141175.mlab.com:41175/angular2-deployment';
+//const localServer = 'localhost:27017/node-angular';
+//const deployServer = 'test-user:test_pw@ds141175.mlab.com:41175/angular2-deployment';
+
+var isLocalServer = false;
+var server;
+if(isLocalServer){
+    server = 'localhost:27017/node-angular';
+}
+else{
+    server = 'test-user:test_pw@ds141175.mlab.com:41175/angular2-deployment'
+}
 
 var app = express();
 //mongoose.connect('localhost:27017/node-angular');
-mongoose.connect(deployServer);
+mongoose.connect(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
